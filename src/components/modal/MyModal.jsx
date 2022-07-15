@@ -16,7 +16,6 @@ function MyModal({ show, handleClose, movie }) {
       sx={{
         width: "100%",
         height: "100%",
-        border: "1px solid yellow",
         textAlign: "center",
       }}
       open={show}
@@ -34,29 +33,23 @@ function MyModal({ show, handleClose, movie }) {
         sx={{
           backgroundColor: "black",
           color: "white",
-          border: "1px solid blue",
+          borderRadius: "5px",
+          border: "2px solid red",
         }}
         justifyContent="center"
       >
-        <Box width="49%">
-          <img
-            style={{
-              width: "100%",
-              borderRadius: "5px",
-              border: "1px solid white",
-            }}
-            src={posterPath}
-            alt="Movie_Poster"
-          />
+        <Box display="flex" width="70%">
+          <img src={posterPath} alt="Movie_Poster" />
         </Box>
-        <Box width="100%" border="1px solid white" py={5}>
-          <Typography textAlign="center" variant="h6" component="h2">
+        <Box width="100%">
+          <Typography textAlign="center" variant="h6" component="h2" py={5}>
             {movie.title}
           </Typography>
-          <Typography sx={{ mt: 2 }} variant="body1">
+          <Typography sx={{ mt: 2 }} variant="body1" py={1} px={2}>
+            {movie.overview}
             {movie.overview}
           </Typography>
-          <Typography textAlign="center" sx={{ mt: 2 }} variant="body1">
+          <Typography textAlign="center" sx={{ mt: 2 }} variant="body1" p={1}>
             Movie Average : {movie.vote_average}
           </Typography>
           <Button

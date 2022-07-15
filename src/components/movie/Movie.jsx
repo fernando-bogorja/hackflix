@@ -19,11 +19,14 @@ const Movie = ({ movie }) => {
       <Box
         onClick={() => setShow(true)}
         display="flex"
-        sx={{ padding: "20px" }}
-        border="3px solid red"
+        sx={{ padding: "15px" }}
       >
         <img
-          style={{ width: "400px", borderRadius: "5px" }}
+          style={{
+            width: "300px",
+            borderRadius: "5px",
+            border: "2px solid red",
+          }}
           className={effects.zoom}
           src={posterPath}
           alt="Movie_Poster"
