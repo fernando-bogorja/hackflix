@@ -5,7 +5,7 @@ function MyCarousel({ movies }) {
   return (
     <Carousel>
       {movies.map((movie) => {
-        const { backdrop_path, title, overview } = movie;
+        const { backdrop_path, title, overview, vote_average } = movie;
         const backdropPath =
           "https://image.tmdb.org/t/p/original/" + backdrop_path;
         return (
@@ -36,6 +36,13 @@ function MyCarousel({ movies }) {
                   }}
                 >
                   {overview}
+                </p>
+                <p
+                  style={{
+                    textShadow: "2px 2px rgb(0,0,0,0.22)",
+                  }}
+                >
+                  Vote average : {vote_average}
                 </p>
               </div>
             </Carousel.Caption>

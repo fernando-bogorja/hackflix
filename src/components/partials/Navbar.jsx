@@ -9,8 +9,9 @@ import MenuItem from "@mui/material/MenuItem";
 import theme from "../../theme";
 import { Link } from "react-router-dom";
 import { effects } from "../../theme";
+import { Container } from "@mui/material";
 
-const pages = ["Home", "Sobre nosotros", "Contacto"];
+const pages = ["Sobre este proyecto", "Contacto"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -34,123 +35,117 @@ const Navbar = () => {
   return (
     <>
       <Box display="flex" width="100%">
-        <AppBar position="static">
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            sx={{
-              backgroundColor: "rgb(33,31,31)",
-              padding: "50px",
-            }}
-          >
-            <Box>
-              <img
-                className={effects.zoom}
-                style={{ width: "250px" }}
-                srcSet={require("../../assets/img/Hackflix-Icon.png")}
-                alt="hackflix-logo"
-              />
-            </Box>
+        <AppBar
+          position="static"
+          sx={{ width: "100%", backgroundColor: "#000000", padding: "50px" }}
+        >
+          <Container>
             <Box
               display="flex"
+              justifyContent="space-between"
               sx={{
-                display: { xs: "none", md: "flex" },
+                backgroundColor: "rgb(0,0,0)",
               }}
             >
-              <Box display="flex" sx={{ padding: "15px" }}>
-                <Typography className={effects.zoom}>
-                  <Link
-                    to="/"
-                    className="link-none"
-                    style={{
-                      textDecoration: "none",
-                      color: "#F5F5F0",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Inicio
-                  </Link>
-                </Typography>
+              <Box>
+                <Link to="/" className="link-none">
+                  <img
+                    className={effects.zoom}
+                    style={{ width: "250px" }}
+                    srcSet={require("../../assets/img/Hackflix-Icon.png")}
+                    alt="hackflix-logo"
+                  />
+                </Link>
               </Box>
-              <Box display="flex" sx={{ padding: "15px" }}>
-                <Typography className={effects.zoom}>
-                  <Link
-                    to="/about"
-                    className="link-none"
-                    style={{
-                      textDecoration: "none",
-                      color: "#F5F5F0",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Sobre nosotros
-                  </Link>
-                </Typography>
-              </Box>
-              <Box display="flex" sx={{ padding: "15px" }}>
-                <Typography className={effects.zoom}>
-                  <Link
-                    to="/contact"
-                    className="link-none"
-                    style={{
-                      textDecoration: "none",
-                      color: "#F5F5F0",
-                      fontSize: "20px",
-                    }}
-                  >
-                    Contacto
-                  </Link>
-                </Typography>
-              </Box>
-            </Box>
-
-            <Box
-              sx={{
-                flexGrow: 1,
-                display: {
-                  xs: "flex",
-                  md: "none",
-                },
-                justifyContent: { xs: "flex-end" },
-              }}
-            >
-              <IconButton
-                size="large"
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleOpenNavMenu}
-                color="inherit"
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "bottom",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
+              <Box
+                display="flex"
                 sx={{
-                  display: { xs: "flex", md: "none" },
+                  display: { xs: "none", md: "flex" },
+                }}
+              >
+                <Box display="flex" sx={{ padding: "15px" }}>
+                  <Typography className={effects.zoom}></Typography>
+                </Box>
+                <Box display="flex" sx={{ padding: "15px" }}>
+                  <Typography className={effects.zoom}>
+                    <Link
+                      to="/about"
+                      className="link-none"
+                      style={{
+                        textDecoration: "none",
+                        color: "#F5F5F0",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Sobre este proyecto
+                    </Link>
+                  </Typography>
+                </Box>
+                <Box display="flex" sx={{ padding: "15px" }}>
+                  <Typography className={effects.zoom}>
+                    <Link
+                      to="/contact"
+                      className="link-none"
+                      style={{
+                        textDecoration: "none",
+                        color: "#F5F5F0",
+                        fontSize: "20px",
+                      }}
+                    >
+                      Contacto
+                    </Link>
+                  </Typography>
+                </Box>
+              </Box>
+
+              <Box
+                sx={{
+                  flexGrow: 1,
+                  display: {
+                    xs: "flex",
+                    md: "none",
+                  },
                   justifyContent: { xs: "flex-end" },
                 }}
               >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "flex", md: "none" },
+                    justifyContent: { xs: "flex-end" },
+                  }}
+                >
+                  {pages.map((page) => (
+                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center">{page}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
             </Box>
-          </Box>
+          </Container>
         </AppBar>
       </Box>
     </>

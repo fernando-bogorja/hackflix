@@ -47,7 +47,6 @@ function MyModal({ show, handleClose, movie }) {
           </Typography>
           <Typography sx={{ mt: 2 }} variant="body1" py={1} px={2}>
             {movie.overview}
-            {movie.overview}
           </Typography>
           <Typography textAlign="center" sx={{ mt: 2 }} variant="body1" p={1}>
             Movie Average : {movie.vote_average}

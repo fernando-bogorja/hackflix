@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { effects } from "../../theme";
 import MyModal from "../modal/MyModal";
 
 const Movie = ({ movie }) => {
   const { poster_path } = movie;
-  const posterPath = "https://image.tmdb.org/t/p/original" + poster_path;
+  const posterPath = "https://image.tmdb.org/t/p/w500" + poster_path;
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
 
@@ -16,19 +16,20 @@ const Movie = ({ movie }) => {
       ) : (
         <></>
       )}
-      <Box
-        onClick={() => setShow(true)}
-        display="flex"
-        sx={{ padding: "15px" }}
-      >
+
+      <Box onClick={() => setShow(true)} sx={{ padding: "15px" }}>
         <img
           style={{
-            width: "300px",
+            width: "250px",
             borderRadius: "5px",
             border: "2px solid red",
           }}
           className={effects.zoom}
-          src={posterPath}
+          srcSet={
+            poster_path
+              ? posterPath
+              : require("../../assets/img/imgplaceholder.png")
+          }
           alt="Movie_Poster"
         />
       </Box>
